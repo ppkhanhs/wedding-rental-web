@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<div id="main" class="page-container">
+    <div class="d-flex d-sm-flex align-items-center mb-4">
+        <button class="btn btn-primary" onclick="toggleNav()"><i class="fas fa-bars"></i></button>
+        <h1 class="h4 mb-0 text-gray-800 ms-3"><a class="text-link" href="/Home/Index">Home</a> / Thêm sản phẩm</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 mb-4">
+            <p>
+                <i class="fas fa-exclamation-triangle text-danger me-2"></i><span class="font-weight-bold">Lưu ý:</span> Các file ảnh có kích thước dưới 100 MB và thuộc các định dạng PNG / JPG / JPEG
+            </p>
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 style="color: #333;" class="m-0"><i class="fa fa-plus-square me-2"></i>Thêm sản phẩm mới</h6>
+                </div>
+                <div class="card-body">
+                    <form id="edit_product">
+                        <div class="row">
+                            <div class="form-group col-md-4 mb-3">
+                                <label for="productname" class="font-weight-bold"><i class="fa fa-tags me-2"></i>Tên sản phẩm</label>
+                                <input type="text" class="form-control mt-2" name="productname" id="productname" placeholder="Nhập tên của sản phẩm" value="">
+                            </div>
+                            <div class="form-group col-md-4 mb-3">
+                                <label for="category" class="font-weight-bold"><i class="fa fa-list-ul me-2"></i>Danh mục sản phẩm</label>
+                                <select name="category" id="category" class="form-control mt-2">
+                                    <option value="VAYCUOI">Váy Cưới</option>
+                                    <option value="VESTCUOI">Vest Cưới</option>
+                                    <option value="AODAI">Áo Dài</option>
+                                    <option value="DAM">Đầm</option>
+                                    <option value="GIAYCUOI">Giày Cưới</option>
+                                    <option value="PHUKIENCUOI">Phụ Kiện Cưới</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4 mb-3">
+                                <label for="price" class="font-weight-bold"><i class="fas fa-money-bill me-2"></i>Đơn giá (₫)</label>
+                                <input type="text" class="form-control mt-2" name="price" id="price" placeholder="Nhập đơn giá cho sản phẩm" value="">
+                            </div>
+                            <div class="form-group col-md-4 mb-3">
+                                <label for="status" class="font-weight-bold"><i class="fa fa-cubes me-2"></i>Tình trạng</label>
+                                <select name="status" id="status" class="form-control mt-2">
+                                    <option value="VAYCUOI">Còn hàng</option>
+                                    <option value="VESTCUOI">Hết hàng</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4 mb-3">
+                                <label for="icon" class="font-weight-bold"><i class="far fa-file-image me-2"></i>Hình ảnh sản phẩm</label>
+                                <input type="file" class="form-control mt-2" name="icon" id="icon">
+                            </div>
+                            <div class="form-group col-md-12 mb-5">
+                                <label for="description" class="font-weight-bold mb-3"><i class="fas fa-edit me-2"></i>Mô tả của sản phẩm</label>
+                                <div id="edit_des"></div>
+                            </div>
+                            <div class="mt-5 button-area col-md-12 d-flex justify-content-end">
+                                <button class="btn btn-danger m-1"><i class="fas fa-reply me-2"></i>Quay lại</button>
+                                <button class="btn btn-primary m-1" type="submit"><i class="fa fa-plus-square me-2"></i>Thêm sản phẩm</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="~/Content/admin/js/quill.js"></script>

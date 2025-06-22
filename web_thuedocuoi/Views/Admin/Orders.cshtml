@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model IEnumerable<web_thuedocuoi.Models.DONHANG>
+<div id="main" class="page-container">
+    <div class="d-flex d-sm-flex align-items-center mb-4">
+        <button class="btn btn-primary" onclick="toggleNav()"><i class="fas fa-bars"></i></button>
+        <h1 class="h4 mb-0 text-gray-800 ms-3"><a class="text-link" href="/Home/Index">Home</a> / Quản lý đơn hàng</h1>
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="font-weight-bold text-secondary text-uppercase mb-2">
+                                Tổng đơn hàng
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-normal">
+                                @Model.Count()
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard fa-2x text-gray"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Repeat other stats cards as needed -->
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 style="color: #333;" class="m-0"><i class="fas fa-clipboard me-2"></i>Danh sách các đơn hàng</h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="table-responsive col-md-12">
+                            <input type="text" class="form-control searchInput col-md-3" placeholder="Search...">
+                            <table id="dataTable-10" class="table text-center border dataTable">
+                                <thead class="table-head">
+                                <th>Mã đơn hàng</th>
+                                <th>Mã khách hàng</th>
+                                <th>Ngày thuê</th>
+                                <th>Ngày trả</th>
+                                <th>Phụ thu</th>
+                                <th>Giảm giá</th>
+                                <th>Tổng tiền</th>
+                                <th>Trạng thái</th>
+                                <th>Hành động</th>
+                                </thead>
+                                <tbody>
+                                    @foreach (var order in Model)
+                                    {
+                                        <tr>
+                                            <td>@order.MADH</td>
+                                            <td>@order.MAKH</td>
+                                            <td>@order.NGAYTHUE</td>
+                                            <td>@order.NGAYTRA</td>
+                                            <td>@order.PHUTHU</td>
+                                            <td>@order.GIAMGIA</td>
+                                            <td class="text-danger font-weight-bold">@order.TONGTIEN</td>
+                                            <td>
+                                                <span class="badge @(order.TRANGTHAI == "Đang thuê" ? "bg-warning" : (order.TRANGTHAI == "Hoàn thành" ? "bg-success" : "bg-danger"))">@order.TRANGTHAI</span>
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-primary text-sm" href="@Url.Action("OrderDetails", "Admin", new { id = order.MADH })"><i class="fas fa-eye mr-0"></i></a>
+                                                <a class="btn btn-success text-sm" href="#"><i class="fa fa-check mr-0"></i></a>
+                                                <a class="btn btn-danger text-sm" href="#"><i class="far fa-trash-alt mr-0"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <div id="pagination">
+                                <div id="paginationNumbers" class="d-inline"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/js/main.js"></script>
+
+

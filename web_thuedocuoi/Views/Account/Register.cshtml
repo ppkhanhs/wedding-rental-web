@@ -1,0 +1,79 @@
+﻿@{
+    Layout = null;
+}
+
+<link href="~/Content/css/login.css" rel="stylesheet" />
+<link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<style>
+    .row select {
+        width: 100%;
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        padding-left: 60px;
+        color: #a9a9a9;
+    }
+
+    .row label {
+        margin-right: 15px;
+        color: black;
+    }
+
+    .row input[type="radio"] {
+        margin-right: 5px;
+    }
+</style>
+
+<div class="form-box">
+    <div class="wrapper">
+        <div class="title bg-secondary"><span>ĐĂNG KÝ</span></div>
+        <form action="/Account/Register" method="post">
+            <div class="row">
+                <i class="fas fa-user bg-secondary"></i>
+                <input type="text" name="HOTEN" placeholder="Họ và tên" required>
+            </div>
+            <div class="row">
+                <i class="fas fa-envelope bg-secondary"></i>
+                <input type="email" name="EMAIL" placeholder="Email" required>
+            </div>
+            <div class="row">
+                <i class="fas fa-phone bg-secondary"></i>
+                <input type="text" name="DIEN_THOAI" placeholder="Điện thoại" required>
+            </div>
+            <div class="row">
+                <i class="fas fa-home bg-secondary"></i>
+                <input type="text" name="DIACHI" placeholder="Địa chỉ" required>
+            </div>
+            <div class="row">
+                <i class="fas fa-venus-mars me-2 bg-secondary"></i>
+                <select name="GIOITINH" class="bg-white" required>
+                    <option value="" disabled selected>Giới tính</option>
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                    <option value="Khác">Khác</option>
+                </select>
+            </div>
+            <div class="row">
+                <i class="fas fa-lock bg-secondary"></i>
+                <input type="password" name="PASSWORD" placeholder="Mật khẩu" required>
+            </div>
+            <div class="row">
+                <i class="fas fa-lock bg-secondary"></i>
+                <input type="password" name="CONFIRM_PASSWORD" placeholder="Nhập lại mật khẩu" required>
+            </div>
+            <div class="row button">
+                <input type="submit" value="Đăng Ký" class="bg-secondary">
+            </div>
+            <div class="signup-link">Đã có tài khoản? <a href="/Account/Login" class="link-primary">Đăng nhập ngay</a></div>
+        </form>
+    </div>
+</div>

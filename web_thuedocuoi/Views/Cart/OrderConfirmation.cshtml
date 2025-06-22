@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "OrderConfirmation";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@model web_thuedocuoi.Models.DONHANG
+<section class="order-confirmation container">
+    <h2 class="title text-center bg-primary p-3 text-white">Order Confirmation</h2>
+    <div class="order-details">
+        <h3>Order ID: @Model.MADH</h3>
+        <p>Date: @Model.NGAYTHUE.ToString("dd/MM/yyyy")</p>
+        <p>Total Amount: @Model.TONGTIEN.ToString("C")</p>
+        <p>Status: @Model.TRANGTHAI</p>
+    </div>
+    <div class="order-items">
+        <h3>Order Items</h3>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CHITIETDHs)
+                {
+                    <tr>
+                        <td>@item.SANPHAM.TENSP</td>
+                        <td>@item.SOLUONG</td>
+                        <td>@item.DONGIA.ToString("C")</td>
+                        <td>@(item.SOLUONG * item.DONGIA).ToString("C")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-primary">Continue Shopping</a>
+</section>
+
+

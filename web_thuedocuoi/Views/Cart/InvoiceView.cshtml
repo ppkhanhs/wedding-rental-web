@@ -1,0 +1,81 @@
+﻿@model List<web_thuedocuoi.Models.Invoice>
+
+@{
+    ViewBag.Title = "InvoiceView";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<style>
+    .table__container {
+        margin-top: 20px;
+    }
+
+    .table td, .table th {
+        vertical-align: middle;
+    }
+
+    .invoice__total-table {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+        .invoice__total-table td {
+            padding: 10px;
+        }
+
+    .section__title {
+        margin-bottom: 20px;
+    }
+</style>
+
+<section class="invoice section--lg container">
+    <h2 class="title text-center bg-primary p-3 text-white" style="margin-top:150px;margin-bottom:50px">Invoice</h2>
+    <div class="table-responsive table__container">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Tên</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="table__img">
+                            <img src="~/Content/images/@item.ProductImage" class="img-fluid" height="50" width="50" />
+                        </td>
+                        <td>
+                            <h5 class="table__title mb-1">@item.ProductName</h5>
+                        </td>
+                        <td><span class="table__price">@item.Price</span></td>
+                        <td>@item.Quantity</td>
+                        <td><span class="table__subtotal">@item.Total</span></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container invoice__total">
+        <div class="card cart__total">
+            <div class="card-body">
+                <h3 class="section__title">Invoice Summary</h3>
+                <table class="table invoice__total-table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td><strong>Total Quantity</strong></td>
+                            <td>@Model.Sum(i => i.Quantity)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Amount</strong></td>
+                            <td>@Model.Sum(i => i.Total)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+<link href="~/Content/css/login.css" rel="stylesheet" />
+<link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+<div class="form-box">
+    <div class="wrapper">
+        <div class="title bg-secondary"><span>ĐĂNG NHẬP</span></div>
+        <form action="/Account/Login" method="post">
+            <div class="row">
+                <i class="fas fa-user bg-secondary"></i>
+                <input type="text" name="Email" placeholder="Email" required>
+            </div>
+            <div class="row">
+                <i class="fas fa-lock bg-secondary"></i>
+                <input type="password" name="Password" placeholder="Password" required>
+            </div>
+            <div class="pass">
+                <label>
+                    <input type="checkbox">
+                    <a>Remember Me</a>
+                </label>
+                <span><a href="#" class="link-primary">Forgot password?</a></span>
+            </div>
+            <div class="row button">
+                <input type="submit" value="Login" class="bg-secondary">
+            </div>
+            <div class="signup-link">Not a member? <a href="/Account/Register" class="link-primary">Signup now</a></div>
+        </form>
+    </div>
+</div>

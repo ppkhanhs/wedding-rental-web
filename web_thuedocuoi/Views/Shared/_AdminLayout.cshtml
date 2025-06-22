@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="https://cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="~/Content/css/AdminPage.css" rel="stylesheet" />
+    <link href="~/Content/fontawesome/css/all.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid">
+        <div id="mySidebar" class="sidebar" style="background-color: #2b3043; color: #fff;">
+            <div class="sidebar-content">
+                <ul style="list-style: none;">
+                    <li class="sidebar-item">
+                        <a class="sidebar-link " href="/Admin/ManageUsers">
+                            <i class="fas fa-users me-2"></i>
+                            <span>Quản lý tài khoản</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link " href="/Admin/ManageProducts">
+                            <i class="fas fa-clipboard me-3 ms-1"></i>
+                            <span>Quản lý sản phẩm</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link " href="/Admin/Orders">
+                            <i class="fas fa-clipboard me-3 ms-1"></i>
+                            <span>Quản lý đơn hàng</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        @RenderBody()
+    </div>
+    <script src="~/Content/js/main.js"></script>
+</body>
+</html>

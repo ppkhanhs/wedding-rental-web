@@ -1,0 +1,31 @@
+﻿@model IEnumerable<web_thuedocuoi.Models.SANPHAM>
+@{
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@if (Model != null)
+{
+    <h2 class="title text-center text-primary" style="margin-top:100px;margin-bottom:50px">@ViewBag.CategoryName</h2>
+    <div class="container">
+        <div class="row justify-content-between">
+            @foreach (var product in Model)
+            {
+                <div class="card col-md-4 mb-4" style="height: max-content; width: 23%;">
+                    <img src="/Content/images/@product.HINHANH" class="card-img-top" style="height: 400px;" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.TENSP</h5>
+                        <h5 class="text-danger">@product.GIA đ</h5>
+                    </div>
+                    <div class="container d-flex gap-4 align-content-center">
+                        <a href="/Home/Details/@product.MASP" class="btn btn-primary font-weight-bold mb-3 w-100">Xem</a>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+}
+else
+{
+    <p>No products found in this category.</p>
+}

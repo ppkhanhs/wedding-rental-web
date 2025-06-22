@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "UsersDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>UsersDetail</h2>
+<div id="main" class="page-container">
+    <div class="d-flex d-sm-flex align-items-center mb-4">
+        <button class="btn btn-primary" onclick="toggleNav()"><i class="fas fa-bars"></i></button>
+        <h1 class="h4 mb-0 text-gray-800 ms-3"><a class="text-link" href="/Home/Index">Home</a> / Chỉnh sửa tài khoản</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0"><i class="far fa-edit me-2"></i>Chỉnh sửa thông tin khách hàng</h6>
+                </div>
+                <div class="card-body">
+                    <form id="edit_users" method="POST" action="/Admin/EditUsers/@(Model?.MAKH ?? "")">
+                        <div class="row">
+                            <div class="form-group col-md-4 mb-4">
+                                <label for="id" class="font-weight-bold"><i class="far fa-user-circle me-2"></i>Mã khách hàng</label>
+                                <input type="text" class="form-control mt-2" name="id" id="id" placeholder="Mã tài khoản khách hàng" value="@(Model?.MAKH ?? "")" disabled>
+                            </div>
+                            <div class="form-group col-md-4 mb-4">
+                                <label for="email" class="font-weight-bold"><i class="far fa-envelope me-2"></i>Email đăng ký</label>
+                                <input type="text" class="form-control mt-2" name="email" id="email" placeholder="Email của khách hàng" value="@(Model?.EMAIL ?? "")" disabled>
+                            </div>
+                            <div class="form-group col-md-4 mb-4">
+                                <label for="reg_date" class="font-weight-bold"><i class="far fa-calendar me-2"></i>Ngày đăng ký</label>
+                                <input type="text" class="form-control mt-2" name="reg_date" id="reg_date" placeholder="Ngày tạo tài khoản" value="@(Model?.NGAYTAO?.ToString("yyyy-MM-dd") ?? "")" disabled />
+                            </div>
+                            <div class="form-group col-md-4 mb-4">
+                                <label for="name" class="font-weight-bold"><i class="far fa-address-card me-2"></i>Họ và tên</label>
+                                <input type="text" class="form-control mt-2" name="name" id="name" placeholder="Họ tên khách hàng" value="@(Model?.HOTEN ?? "")">
+                            </div>
+                            <div class="form-group col-md-4 mb-4">
+                                <label for="phone" class="font-weight-bold"><i class="fas fa-phone me-2"></i>Số điện thoại</label>
+                                <input type="text" class="form-control mt-2" name="phone" id="phone" placeholder="Số điện thoại khách hàng" value="@(Model?.DIEN_THOAI ?? "")">
+                            </div>
+                            <div class="form-group col-md-4 mb-4">
+                                <label for="gender" class="font-weight-bold"><i class="fa fa-transgender-alt me-2"></i>Giới tính</label>
+                                <select name="gender" class="form-control mt-2">
+                                    <option value="Male" @(Model?.GIOITINH == "Male" ? "selected" : "")>Nam</option>
+                                    <option value="Female" @(Model?.GIOITINH == "Female" ? "selected" : "")>Nữ</option>
+                                    <option value="Other" @(Model?.GIOITINH == "Other" ? "selected" : "")>Khác</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-12 mb-4">
+                                <label for="address" class="font-weight-bold"><i class="fas fa-map-marked-alt me-2"></i>Địa chỉ</label>
+                                <input type="text" class="form-control mt-2" name="address" id="address" placeholder="Địa chỉ của khách hàng" value="@(Model?.DIACHI ?? "")">
+                            </div>
+                            <div class="mt-3 button-area col-md-12 d-flex justify-content-end">
+                                <a class="btn btn-danger m-1" href="/Admin/DeleteUsers/@(Model?.MAKH ?? "")"><i class="fas fa-times me-2"></i>Xóa tài khoản</a>
+                                <button class="btn btn-primary m-1" type="submit"><i class="fas fa-check me-2"></i>Cập nhật</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--=============== FLATICON ===============-->
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/2.3.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/main.css"
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <!--header-->
+    <header class="header">
+        <div class="header__top">
+            <div class="header__container container">
+                <div class="header__contact">
+                    <span>Hotline: 0868.444.644</span>
+
+                    <span>Cửa hàng thời trang</span>
+                </div>
+                <p class="header__alert-news">JP/Fashion</p>
+            </div>
+        </div>
+
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <img src="assets/images/logo.jpg" alt="" class="nav__logo-img" />
+            </a>
+
+            <div class="nav__menu" id="nav-menu">
+                <div class="nav__menu-top">
+                    <a href="index.html" class="nav__menu-logo">
+                        <img src="assets/img/logo.svg" alt="" />
+                    </a>
+
+                    <div class="nav__close" id="nav-close">
+                        <i class="fi fi-rr-cross"></i>
+                    </div>
+                </div>
+
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link active-link">Trang chủ</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="shop.html" class="nav__link">Cửa hàng</a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="accounts.html" class="nav__link">Tài khoản</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="compare.html" class="nav__link">Sản phẩm</a>
+                    </li>
+                    <li class="nav__items">
+                        <a href="login-register.html" class="nav__link">Đăng nhập</a>
+                    </li>
+                    <li class="nav__items">
+                        <a href="/Home/CartView" class="nav__link">Giỏ hàng</a>
+                    </li>
+                </ul>
+                <div class="header__search">
+                    <input type="text"
+                           placeholder="Tìm kiếm sản phẩm"
+                           class="form__input" />
+                    <button class="search__btn">
+                        <img src="assets/img/search.png" alt="" />
+                    </button>
+                </div>
+            </div>
+            <a href="login-register.html" class="header__top-action">
+                Log In / Sign up
+            </a>
+        </nav>
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+
+
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="~/Content/JavaScript.js"></script>
+</body>
+</html>

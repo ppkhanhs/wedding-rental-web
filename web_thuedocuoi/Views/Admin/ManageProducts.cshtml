@@ -1,0 +1,112 @@
+﻿@{
+    ViewBag.Title = "ManageProducts";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div id="main" class="page-container">
+    <div class="d-flex d-sm-flex align-items-center mb-4">
+        <button class="btn btn-primary" onclick="toggleNav()"><i class="fas fa-bars"></i></button>
+        <h1 class="h4 mb-0 text-gray-800 ms-3"><a class="text-link" href="/Home/Index">Home</a> / Quản lý sản phẩm</h1>
+    </div>
+    <div class="row">
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="font-weight-bold text-secondary text-uppercase mb-2">
+                                Tổng sản phẩm
+                            </div>
+                            <div class="h5 mb-0 font-weight-bold text-normal">
+                                @ViewBag.CountPro
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-clipboard fa-2x text-gray"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-2 col-md-6 mb-4 href-hover">
+            <a href="/Admin/Create" class="text-link">
+                <div class="card shadow h-100 py-3 text-center border-left-success">
+                    <div class="row no-gutters align-items-center justify-content-center">
+                        <div class="col-auto">
+                            <i class="fa fa-cart-plus fa-3x text-gray"></i>
+                            <div class="h6 mb-0 mt-2 font-weight-bold text-normal">Thêm sản phẩm</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 mb-4">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 style="color: #333;" class="m-0"><i class="fas fa-clipboard me-2"></i>Sản phẩm đang cho thuê</h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <form method="post" action="@Url.Action("SearchProducts", "Admin")" class="mb-4">
+                            <input type="text" name="searchTerm" class="form-control searchInput col-md-3" placeholder="Search..." value="@Request.Form["searchTerm"]">
+                            <button type="submit" class="btn btn-primary mt-2">Tìm kiếm</button>
+                        </form>
+                        <div class="table-responsive col-md-12">
+                            <table id="dataTable-10" class="table text-center border dataTable">
+                                <thead class="table-head">
+                                <th>Mã sản phẩm</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Danh mục</th>
+                                <th>Đơn giá</th>
+                                <th>Lượt thuê</th>
+                                <th>Tình trạng</th>
+                                <th>Hành động</th>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.MASP</td>
+                                            <td>
+                                                <div class="d-flex">
+                                                    <a href="/Admin/ProductsDetail/@item.MASP" class="text-link product-name">
+                                                        <img class="items-border me-3" src="~/Content/images/@item.HINHANH" width="50" height="45">
+                                                        @item.TENSP
+                                                    </a>
+                                                </div>
+                                            </td>
+                                            <td>@item.MA_DANHMUC</td>
+                                            <td>@item.GIA</td>
+                                            <td>@item.SOLUONGTON</td>
+                                            <td>
+                                                @if (item.SOLUONGTON > 0)
+                                                {
+                                                    <span class="badge bg-success">Còn hàng</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-danger">Hết hàng</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <a class="btn btn-primary text-sm font-weight-bold" href="/Admin/ProductsDetail/@item.MASP"><i class="fas fa-edit mr-0"></i></a>
+                                                <a class="btn btn-danger text-sm" href="#"><i class="far fa-trash-alt mr-0"></i></a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                            <div id="pagination">
+                                <div id="paginationNumbers" class="d-inline"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Content/js/main.js"></script>

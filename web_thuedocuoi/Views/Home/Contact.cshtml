@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Contact";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="container" style="margin-top:200px">
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="list-unstyled bg-white p-3 border">
+                <li class="nav-item mb-3">
+                    <a href="#" class="nav-link font-weight-bold" style="color: #333;"><i class="fab fa-facebook me-1"></i> Facebook</a>
+                </li>
+                <hr>
+                <li class="nav-item mb-3">
+                    <a href="#" class="nav-link font-weight-bold" style="color: #333;"><i class="fab fa-youtube me-1"></i> Youtube</a>
+                </li>
+                <hr>
+                <li class="nav-item mb-3">
+                    <a href="#" class="nav-link font-weight-bold" style="color: #333;"><i class="fab fa-instagram me-1"></i> Instagram</a>
+                </li>
+                <hr>
+                <li class="nav-item mb-3">
+                    <a href="#" class="nav-link font-weight-bold" style="color: #333;"><i class="fas fa-phone me-1"></i> Hotline: 0327.749.747</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-9">
+            <h2>Liên hệ với chúng tôi</h2>
+            <p>Hãy để lại thông tin, chúng tôi sẽ liên hệ và tư vấn cho bạn</p>
+            <form>
+                <div class="card-body bg-white p-3">
+                    <div class="row">
+                        <div class="form-group col-md-6 mb-3">
+                            <label for="username" class="font-weight-bold mb-3"><i class="fas fa-user me-2"></i> Họ tên</label>
+                            <input type="text" class="form-control" name="username" placeholder="Nhập họ và tên của bạn">
+                        </div>
+                        <div class="form-group col-md-6 mb-3">
+                            <label for="phone" class="font-weight-bold mb-3"><i class="fas fa-phone me-2"></i> Số điện thoại</label>
+                            <input type="tel" class="form-control" name="phone" placeholder="Nhập số điện thoại của bạn">
+                        </div>
+                        <div class="form-group col-md-12 mb-3">
+                            <label for="content" class="font-weight-bold mb-3"><i class="fas fa-edit me-2"></i> Vấn đề cần được tư vấn</label>
+                            <textarea rows="5" class="form-control" name="content" placeholder="Ghi nội dung bạn cần được tư vấn"></textarea>
+                        </div>
+                        <div class="form-group col-md-12 text-end">
+                            <button type="submit" class="btn btn-primary">Gửi yêu cầu</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
