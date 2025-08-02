@@ -30,11 +30,11 @@ The API supports managing wedding rental items and services. Below is an example
 
 API | Endpoints | Description | Request body | Response body 
 ---|---|---|---|---
-GET    | `	/api/Items`      | Get all rental items     | None       | List of items
+GET    | `/api/Items`      | Get all rental items     | None       | List of items
 GET    | `/api/Items/{id}` | Get a specific item by ID       | None       | Item
 POST   | `/api/Items`      | 	Add a new rental item          | Item object | Created item
-PUT    | `	/api/Items/{id}` | Update an existing item | Item object | Updated item
-DELETE | `	/api/Items/{id}` | Delete an item          | None       | None 
+PUT    | `/api/Items/{id}` | Update an existing item | Item object | Updated item
+DELETE | `/api/Items/{id}` | Delete an item          | None       | None 
 
 ## The Architecture
 
