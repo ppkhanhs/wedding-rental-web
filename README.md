@@ -49,3 +49,11 @@ Controllers --> Services / Logic --> Data Access (DbContext)  -->  Database
 * SQL Server as the backend database
 * RESTful API design
 * DTOs and ViewModels (optional, for cleaner data handling)
+
+## Credit and tools
+
+* .NET Core SDK 6.0 or later
+* Entity Framework Core
+* Swagger for API documentation
+* Visual Studio or VS Code
+* Microsoft SQL Server (or LocalDB for development)
