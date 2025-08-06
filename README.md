@@ -54,6 +54,5 @@ Controllers --> Services / Logic --> Data Access (DbContext)  -->  Database
 
 * .NET Core SDK 6.0 or later
 * Entity Framework Core
-* Swagger for API documentation
-* Visual Studio or VS Code
-* Microsoft SQL Server (or LocalDB for development)
+* Visual Studio
+* Microsoft SQL Server
